@@ -1,4 +1,4 @@
-package io.tatumalenko
+package io.tatumalenko.concurrency
 
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.delay

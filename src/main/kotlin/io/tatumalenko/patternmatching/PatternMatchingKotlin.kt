@@ -1,4 +1,4 @@
-package io.tatumalenko
+package io.tatumalenko.patternmatching
 
 import io.tatumalenko.model.Download
 
@@ -20,15 +20,15 @@ object PatternMatchingKotlin {
         else -> "No exhaustive when if using Java Records"
     }
 
-    fun run2(downloadd: Downloadd): String = when (downloadd) {
-        is Appp -> {
+    fun run2(downloadd: io.tatumalenko.Downloadd): String = when (downloadd) {
+        is io.tatumalenko.Appp -> {
             val (appName, developer) = downloadd
             when (developer.name) {
                 "Alice" -> "Alice's app $appName"
                 else -> "Not Alice's app"
             }
         }
-        is Moviee -> {
+        is io.tatumalenko.Moviee -> {
             val (movieName, director) = downloadd
             when (director.name) {
                 "Alice" -> "Alice's movie $movieName"

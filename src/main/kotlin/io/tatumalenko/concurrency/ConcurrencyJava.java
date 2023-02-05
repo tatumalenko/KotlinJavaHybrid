@@ -1,4 +1,4 @@
-package io.tatumalenko;
+package io.tatumalenko.concurrency;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
