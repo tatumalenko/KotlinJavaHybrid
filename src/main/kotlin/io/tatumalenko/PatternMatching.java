@@ -1,14 +1,9 @@
 package io.tatumalenko;
 
+import io.tatumalenko.model.Download;
+import io.tatumalenko.model.Download.App;
+import io.tatumalenko.model.Download.Movie;
 import io.tatumalenko.model.Person;
-
-import java.util.concurrent.Executors;
-
-sealed interface Download {}
-
-record App(String name, Person developer) implements Download {}
-
-record Movie(String title, Person director) implements Download {}
 
 public class PatternMatching {
     public static void main(String[] args) {
@@ -23,21 +18,5 @@ public class PatternMatching {
             case App ignored -> "Not Alice's app";
             case Movie ignored -> "Not Alice's movie";
         };
-    }
-
-    private static void virtualThreads() {
-        try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
-            for (var count = 10; count > 0; count--) {
-                var finalCount = count;
-                executor.submit(() -> {
-                    try {
-                        Thread.sleep(100L * finalCount);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    System.out.println(finalCount);
-                });
-            }
-        }
     }
 }

@@ -1,5 +1,8 @@
 package io.tatumalenko
 
+import io.tatumalenko.model.Download
+import io.tatumalenko.model.Download.App
+import io.tatumalenko.model.Download.Movie
 import io.tatumalenko.model.Person
 
 sealed interface Downloadd
@@ -12,6 +15,9 @@ fun main() {
 
     val downloadd: Downloadd = Appp("Alice", Person("Alice", 18))
     println(patternMatching(downloadd))
+
+    ConcurrencyJava.run()
+    ConcurrencyKotlin.run()
 }
 
 private fun patternMatching(download: Download): String = when (download) {
